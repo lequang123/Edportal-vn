@@ -1,5 +1,8 @@
-﻿using Edportal.Interface;
+﻿using Edportal.Database.Efcore;
+using Edportal.Interface;
 using Edportal.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Edportal
 {
@@ -17,11 +20,11 @@ namespace Edportal
         {
             services.AddRazorPages();
             services.AddMvc();
-            //services.AddDbContext<DataContext.AppContext>(options => {
-            //    string connectstring = Configuration.GetConnectionString("DefaultConnection");
-            //    options.UseSqlServer(connectstring);
-            //});
-            
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
             services.AddScoped<IDapper, DapperService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,3 +1,4 @@
+using Edportal.Database.Efcore;
 using Edportal.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,13 +9,17 @@ namespace Edportal.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext applicationDbContext;
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext applicationDbContext)
         {
             _logger = logger;
+            this.applicationDbContext = applicationDbContext;
         }
 
         public IActionResult Index()
         {
+            var locations = applicationDbContext.Location.ToList();
             return View();
         }
 
