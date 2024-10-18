@@ -1,0 +1,59 @@
+@{
+	Layout = "_AdminLayout";
+}
+@section TopHeader{
+	User Management
+}
+
+@section Title{
+	User Management
+}
+
+@section ActiveMenu {
+	<input type="text" readonly hidden name="activeMenu" value="User" />
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/pages/admin/user.css" asp-append-version="true">
+}
+
+<section class="page-content">
+	<div id="error" class="error"></div>
+	<div class="form-filter">
+		<form class="form-horizontal" action="PostViewStatistic" method="post" id="filter">
+			<div class="form-input">
+				<p class="label-admin">From</p>
+				<input type="date" class="custom-input" id="FromDate" name="FromDate" value="" />
+			</div>
+			<div class="form-input">
+				<p class="label-admin">To</p>
+				<input type="date" class="custom-input" id="ToDate" name="ToDate" value="" />
+			</div>
+			<div class="form-input">
+				<p class="label-admin">Search Option</p>
+				<select class="list-input custom-input" id="search-type">
+					<option value="name">Name</option>
+					<option value="email">Email</option>
+					<option value="sabaId">SabaID</option>
+					<option value="birthday">Birthday Year</option>
+					<option value="phone">Phone Number</option>
+				</select>
+			</div>
+			<div class="form-input">
+				<p class="label-admin">Search</p>
+				<input type="text" class="custom-input list-input" id="search" name="search" value="" placeholder="search by email or name..." />
+			</div>
+
+			<button class="btn-custom-admin" type="submit" id="submit-btn">Submit</button>
+			<button class="label label-blue btn-link btn-exportexcel">Export excel</button>
+		</form>
+	</div>
+
+	<div class="content">
+		<div class="user-grid" id="user-grid"></div>
+	</div>
+</section>
+
+@section Scripts {
+	<script src="~/js/admin/user.js" asp-append-version="true"></script>
+}
