@@ -1,0 +1,48 @@
+@{
+	Layout = "_AdminLayout";
+}
+@section TopHeader{
+	Book Management
+}
+
+@section Title{
+	Book Management
+}
+
+@section ActiveMenu {
+	<input type="text" readonly hidden name="activeMenu" value="Book" />
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/pages/admin/book.css" asp-append-version="true">
+}
+
+<section class="page-content">
+	<div style="display: none;" id="error" class="error"></div>
+	<div class="form-filter">
+		<div class="form-horizontal">
+            <div class="form-input">
+                <p class="label-admin">Subject</p>
+                <input class="custom-input list-input" name="search" value="" placeholder="Search subject..." type="text" />
+            </div>
+            <div class="form-input">
+                <p class="label-admin">Status</p>
+                <select class="custom-input list-input" name="status" id="status">
+                    <option value="-1">All</option>
+                    <option value="0">Sent</option>
+                    <option value="1">New</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-custom-admin search_list_email">Submit</button>
+        </div>
+	</div>
+
+	<div class="content">
+		<div class="grid" id="grid"></div>
+	</div>
+</section>
+
+@section Scripts {
+	<script src="~/js/admin/book.js" asp-append-version="true"></script>
+}
