@@ -47,20 +47,28 @@ namespace Edportal
 
             app.UseAuthentication();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-                endpoints.MapControllerRoute(
-                    name: "Admin",
-                    pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}");
-            });
-
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //    endpoints.MapControllerRoute(
+            //        name: "Admin",
+            //        pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}");
+            //});
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.MapWhen(context => context.Request.Path.StartsWithSegments("/admin"), adminApp =>
+            {
+                adminApp.UseRouting();
+                adminApp.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapFallbackToController("Index", "Admin");
+                });
             });
         }
     }

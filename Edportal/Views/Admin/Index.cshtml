@@ -1,7 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Home test Page";
+    ViewData["Title"] = "Admin Page";
 }
-@* 
+
 @section Styles {
     <environment include="Development">
         <link rel="stylesheet" href="~/css/dev/pages/admin/index.chunk.css" />
@@ -10,13 +10,13 @@
         <link rel="stylesheet" href="~/css/pro/pages/admin/index.chunk.css" asp-append-version="true" />
     </environment>
 }
-@section Scripts{
+@section Scripts {
     <environment include="Development">
         <script src="~/js/dev/pages/admin/index.chunk.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="~/js/pro/pages/admin/index.chunk.js" asp-append-version="true"></script>
     </environment>
-} *@
+}
 
 <div id="app-container"></div>

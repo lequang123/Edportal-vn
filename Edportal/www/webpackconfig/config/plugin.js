@@ -1,5 +1,4 @@
 ﻿const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const pathConfig = require('./path');
 const cssRootPath = pathConfig.cssPaths.build;

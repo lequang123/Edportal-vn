@@ -1,6 +1,8 @@
 using Edportal.Database.Efcore;
+using Edportal.Database.Models;
 using Edportal.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Edportal.Controllers

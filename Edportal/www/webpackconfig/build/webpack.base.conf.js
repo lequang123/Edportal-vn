@@ -10,18 +10,15 @@ function generateConfig(environment) {
     const commonConfigs = {
         resolve: {
             alias: alias,
-            extensions: ['.js', '.jsx']
+            extensions: ['.tsx', '.ts', '.js', '.jsx']
         },
         entry: {
             /*js*/
-            [`${jsPath}/lib/lang-en-US`]: pathConfig.scriptPaths.language,
-            [`${jsPath}/pages/home/index`]: pathConfig.scriptPaths.home,
-            [`${jsPath}/pages/communication_setting/index`]: pathConfig.scriptPaths.communication_setting,
+            [`${jsPath}/pages/admin/index`]: pathConfig.scriptPaths.admin,
 
             //*css*/
             [`${cssPath}/main`]: pathConfig.cssPaths.main,
-            [`${cssPath}/pages/home/index`]: pathConfig.cssPaths.home,
-            [`${cssPath}/pages/communication_setting/index`]: pathConfig.cssPaths.communication_setting,
+            [`${cssPath}/pages/admin/index`]: pathConfig.cssPaths.admin,
         },
         output: {
             path: pathConfig.projectRoot,
@@ -34,6 +31,14 @@ function generateConfig(environment) {
                     test: /\.(js|jsx)$/,
                     loader: ["babel-loader"],
                     exclude: /node_modules/
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    ],
                 }
             ]
         },

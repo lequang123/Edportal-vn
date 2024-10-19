@@ -29,3 +29,15 @@ export const MULTI_SELECT_TEXT_OPTIONS = {
 };
 
 export const AUTO_REFRESH_TIMES = [90, 120, 150, 180];
+
+export const DETAIL_ACTION = {
+    VIEW: "view",
+    UPDATE: "update",
+    CREATE: "create",
+    DELETE: "delete",
+    DETAIL: "detail",
+    EXPORT_EXCEL: 'export_excel',
+    ACCEPT_REJECT: "accept_reject",
+    CLONE: "clone",
+    SUBMIT: "submit"
+  };
