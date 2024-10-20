@@ -14,5 +14,8 @@ namespace Edportal.Database.Models
 
         [Column("program_count")]
         public int ProgramCount { get; set; }
+
+        [Column("date_created")]
+        public DateTime DateCreated { get; set; }
     }
 }

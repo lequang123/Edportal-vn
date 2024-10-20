@@ -1,0 +1,90 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #babac0 #fff; }
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+  height: 14px; }
+
+*::-webkit-scrollbar-track {
+  background: #fff; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 8px;
+  border: 3px solid #fff; }
+
+.ant-pagination-options {
+  margin-right: 10px; }
+
+body {
+  overflow: hidden; }
+
+.input-wrapper label {
+  font-size: 0.75rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 400;
+  color: #7f8d9e; }
+
+.list-in-table .ant-list-item:hover {
+  background: #fafafa; }
+
+.list-in-table .ant-layout-sider-trigger {
+  background: #0d2ea0 !important; }
+
+.list-media .ant-list-item {
+  padding: 0; }
+
+.ant-upload-list-item-image {
+  object-fit: cover !important; }
+
+.form-group {
+  margin-bottom: 0 !important; }
+
+.ant-menu.scrollable {
+  overflow: auto;
+  max-height: calc(100vh - 112px); }
+
+.brother-upload-file .space-input-alt .ant-space-item:first-child {
+  width: 100%; }
+
+.tox .tox-statusbar__branding svg {
+  display: none; }
+
+.tox .tox-promotion {
+  display: none; }
+
+.filter-items {
+  gap: 10px;
+  align-items: end; }
+
+.filter-items .input-wrapper {
+  min-width: 225px;
+  max-width: 250px; }
+
+.filter-items .self-end {
+  margin: 0 0 0 auto; }
+
+.ant-breadcrumb .no-bg-hover:hover {
+  background: transparent; }
+
+.specification .ant-collapse-header {
+  align-items: center !important; }
+
+.specification .ant-form-item {
+  margin-bottom: 0px !important; }
+
+.specification .space-form-item .ant-form-item {
+  margin-bottom: 24px !important; }
+
+.flex-center-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.required-field {
+  color: #ff4d4f; }
+
+
+/*# sourceMappingURL=index.chunk.css.map*/

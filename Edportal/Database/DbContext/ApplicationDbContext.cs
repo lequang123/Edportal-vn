@@ -19,6 +19,8 @@ namespace Edportal.Database.Efcore
             modelBuilder.Entity<Location>(entity =>
             {
                 entity.HasKey(e => e.LocationId);
+                entity.Property(e => e.LocationId)
+                  .ValueGeneratedOnAdd();
             });
         }
     }

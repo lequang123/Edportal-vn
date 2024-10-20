@@ -6,5 +6,7 @@ export default {
   EXPORT_EXCEL: '/brother-order/export-excel',
 
 
-  ADMIN_LOCATION_SEARCH: '/Admin/GetLocation'
+  ADMIN_LOCATION_SEARCH: '/Admin/GetLocation',
+  ADMIN_LOCATION_CREATE: '/Admin/CreateLocation',
+  ADMIN_LOCATION_DELETE: '/Admin/DeleteLocation'
 }

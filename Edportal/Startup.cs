@@ -26,6 +26,8 @@ namespace Edportal
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             services.AddScoped<IDapper, DapperService>();
+            services.AddScoped<IAdminService, AdminService>();
+            
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -42,8 +44,6 @@ namespace Edportal
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseAuthentication();
 
