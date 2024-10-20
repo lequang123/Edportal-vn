@@ -1,5 +1,9 @@
 ﻿[
   {
+    "outputFile": "wwwroot/styles/pages/home.css",
+    "inputFile": "wwwroot/styles/pages/home.scss"
+  },
+  {
     "outputFile": "wwwroot/styles/pages/admin/admin.css",
     "inputFile": "wwwroot/styles/pages/admin/admin.scss"
   },
