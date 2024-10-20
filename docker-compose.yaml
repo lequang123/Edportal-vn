@@ -1,4 +1,3 @@
-version: '3'
 services:
  db:
    image: mysql:8.0
@@ -6,8 +5,8 @@ services:
    ports:
      - "3306:3306"
    environment:
-     - MYSQL_ROOT_PASSWORD=root
-     - MYSQL_DATABASE=portal
+     - MYSQL_ROOT_PASSWORD=1234aa
+     - MYSQL_DATABASE=masters_portal
    volumes:
      - 'db_data:/var/lib/mysql'
 volumes:
