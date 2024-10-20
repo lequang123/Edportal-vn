@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+     @RenderSection("Schema", false)
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@RenderSection("Title", false)</title>
+    @RenderSection("Metadata", false)
     <environment include="Development">
         <link rel="stylesheet" href="~/css/dev/main.chunk.css" />
         <link rel="stylesheet" href="~/css/dev/pages/auth/index.chunk.css" />
@@ -16,11 +18,16 @@
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    <div id="header"></div>
-    @RenderSection("Breadcrumb", required: false)
-    <div>
-        @RenderBody()
+    <div class="wapper">
+        <main role="main" class="pb-3">
+            @RenderSection("Breadcrumb", required: false)
+            @RenderBody()
+        </main>
+        @(await Component.InvokeAsync("Footer"))
+
     </div>
+   
+    
     <div id="loadingProcess" class="loading-process" style="display: none;">
         <svg class="icon-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64" fill="#439ff0">
             <circle transform="translate(8 0)" cx="0" cy="16" r="0">
