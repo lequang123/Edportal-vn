@@ -127,6 +127,22 @@
 } 
 
 @(await Component.InvokeAsync("Header", new { page = "home-page", CategorySlug = "/" }))
+<div class="search-background">
+    <div class="text-wrapper">
+        <div class="text-bottom">
+            <h2 class="sub-title">Tất cả mọi ngành học tại Việt Nam</h2>
+            <h1 class="main-title">Tra cứu chương trình học</h1>
+        </div>
+    </div>
+
+    <div class="home-wrapper">
+        <form method="get" action="" class="Form home-search" id="SearchHome">
+            <input type="text" value="" name="discipline" class="search-box" placeholder="Search" autocomplete="off" > 
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+</div>
+
 <section class="main">
     <div class="container">
          <div class="block block-first-hot">

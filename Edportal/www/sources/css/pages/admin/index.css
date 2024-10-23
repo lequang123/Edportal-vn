@@ -47,8 +47,7 @@ body {
 }
 
 .ant-upload-list-item-image {
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
+  object-fit: cover !important;
 }
 
 .form-group {
@@ -110,4 +109,4 @@ body {
 
 .required-field {
   color: #ff4d4f;
-}/*# sourceMappingURL=index.css.map */
+}
