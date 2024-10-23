@@ -21,6 +21,7 @@ import {
   SwapOutlined,
   UnorderedListOutlined,
   UserOutlined,
+  EnvironmentOutlined
 } from '@ant-design/icons'
 
 export const MENU = {
@@ -53,7 +54,7 @@ export const MENU = {
     title: 'Location',
     path: '/admin/location',
     isDisabled: false,
-    icon: <SettingOutlined />
+    icon: <EnvironmentOutlined />
   }
 }
 

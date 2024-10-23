@@ -28,6 +28,18 @@ namespace Edportal.Services
             await applicationDbContext.SaveChangesAsync();
         }
 
+        public async Task UpdateLocationAsync(LocationRequest request)
+        {
+            var location = await applicationDbContext.Location.FindAsync(request.LocationId);
+            if (location != null)
+            {
+                location.City = request.City;
+                location.ProgramCount = request.ProgramCount;
+
+                await applicationDbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task DeleteLocationAsync(LocationRequest request)
         {
             var location = await applicationDbContext.Location.FindAsync(request.LocationId);

@@ -5,7 +5,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { cloneDeep } from "lodash";
 import InputWrapper from "../../components/InputWrapper";
 import TableWithSitecoreApi from "../../components/TableWithSitecoreApi";
-import { useSearchLocation, useAddLocation, useDeleteLocation } from "../../queries/adminQueries";
+import { useSearchLocation, useAddLocation, useDeleteLocation, useUpdateLocation } from "../../queries/adminQueries";
 import { Link } from "react-router-dom"; 
 import { PlusCircleOutlined, EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import BrotherForm from '../../components/BrotherForm/index'
@@ -22,8 +22,11 @@ const Location = () => {
 
   const [dataSource, setDataSource] = useState(cloneDeep(DATASOURCE_TABLE_DEFAULT_SITECORE));
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+
 
   const [form] = Form.useForm();
+  const [formUpdate] = Form.useForm();
 
   const columnDefault = [
     {
@@ -112,17 +115,19 @@ const Location = () => {
     resUseSearchLocation.mutate(model);
   };
 
-  // useEffect(() => {
-  //   const fetchData = () => {
-  //     const model = getModelSearch({ Keyword: dataSource?.requestParams.search || '', PageIndex: 0 });
-  //   resUseSearchLocation.mutate(model);
-  //   };
+  useEffect(() => {
+    const fetchData = () => {
+      const model = getModelSearch({ Keyword: dataSource?.requestParams.search || '', PageIndex: 0 });
+      var test = resUseSearchLocation.mutate(model);
+      console.log(test);
+    };
   
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   const resUseSearchLocation = useSearchLocation({
     onSuccess: (res, variables) => {
+      console.log('resUseSearchLocation', res)
       const { PageSize, PageIndex } = variables || {};
       const data= res || {};
       setDataSource((prev) => {
@@ -161,6 +166,23 @@ const Location = () => {
     }
   });
 
+  const resUseUpdateLocation = useUpdateLocation({
+    onSuccess: (res) => {
+      const model = getModelSearch({ Keyword: dataSource?.requestParams.search || '', PageIndex: 0 });
+      resUseSearchLocation.mutate(model);
+      message.success('Location updated successfully!', 3);
+
+      form.resetFields();
+
+      setShowUpdateModal(false);
+    }
+  });
+
+  const onUpdate = ({ ...data }) => {
+    formUpdate.setFieldsValue(data);
+    setShowUpdateModal(true);
+  }
+
   const onDelete = async ({ ...data }) => {
     confirm({
       title: `Are you sure delete this ${data.city}?`,
@@ -196,7 +218,7 @@ const Location = () => {
     return (
         <Modal
             open={showCreateModal || false}
-            title={'Please input location'}
+            title={'Create new location'}
             maskClosable={true}
             onCancel={() => {
               setShowCreateModal(false)
@@ -270,6 +292,83 @@ const Location = () => {
     )
   }
 
+  const renderUpdateModal = () => {
+    return (
+        <Modal
+            open={showUpdateModal || false}
+            title={'Update location'}
+            maskClosable={true}
+            onCancel={() => {
+              setShowUpdateModal(false)
+            }}
+            footer={[]}
+        >
+          <BrotherForm
+              layout={'vertical'}
+              form={formUpdate}
+              className="grid grid-cols-1 pt-2"
+              onFinish={async () => {
+                let data = {
+                  LocationId: formUpdate.getFieldValue('locationId'),
+                  City: formUpdate.getFieldValue('city'),
+                  ProgramCount: formUpdate.getFieldValue('programCount'),
+                }
+
+                await resUseUpdateLocation.mutateAsync(data)
+              }}
+          >
+            <Form.Item noStyle shouldUpdate>
+              {() => (
+                  <Form.Item
+                      name="city"
+                      label="City"
+                      rules={[
+                        { required: true, message: 'City is required' },
+                      ]}
+                      shouldUpdate
+                  >
+                    <Input />
+                  </Form.Item>
+              )}
+            </Form.Item>
+            <Form.Item noStyle shouldUpdate>
+              {() => (
+                  <Form.Item
+                      name="programCount"
+                      label="Program Count"
+                      rules={[
+                        { required: true, message: 'Program Count is required' }
+                      ]}
+                      shouldUpdate
+                  >
+                    <InputNumber min={0} />
+                  </Form.Item>
+              )}
+            </Form.Item>
+            <div className="flex items-center justify-end">
+              <Button
+                  key="back"
+                  className="mr-2"
+                  onClick={() => {
+                    setShowUpdateModal(false)
+                  }}
+              >
+                Cancel
+              </Button>
+              <Button
+                  key="submit"
+                  type="primary"
+                  htmlType="submit"
+                  loading={resUseUpdateLocation.isLoading}
+              >
+                Submit
+              </Button>
+            </div>
+          </BrotherForm>
+        </Modal>
+    )
+  }
+
   const renderNotificationTable = () => {
     return (
       <TableWithSitecoreApi
@@ -282,7 +381,7 @@ const Location = () => {
         dataSource={dataSource?.data}
         onChange={onChange}
         pagination={{}}
-        paginationOC={dataSource?.pagingation || {}}
+        paginationSC={dataSource?.pagingation || {}}
         renderActionButtons={() => {
           return (
               <div className="d-flex flex-row">
@@ -324,6 +423,7 @@ const Location = () => {
       </div>
       {renderNotificationTable()}
       {renderCreateModal()}
+      {renderUpdateModal()}
     </>
   );
 };

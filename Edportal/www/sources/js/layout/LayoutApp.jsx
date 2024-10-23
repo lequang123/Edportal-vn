@@ -24,16 +24,16 @@ const LayoutApp = ({ children, ...props }) => {
                     maxHeight: "calc(100vh - 64px)",
                     overflowY: "auto"
                 }}>
-                    <Content className="content flex-grow-1 overflow-auto">
+                    <Content className="content flex-grow-1">
                         <Outlet />
+                        <FloatButton.BackTop 
+                            visibilityHeight={100} 
+                            className="brother-button-back" 
+                            target={() => document.getElementById('lay-out-app')} 
+                        />
                     </Content>
                 </Layout>
             </Layout>
-            <FloatButton.BackTop 
-                visibilityHeight={0} 
-                className="brother-button-back" 
-                target={() => document.getElementById('lay-out-app')} 
-            />
         </Layout>
     );
 };

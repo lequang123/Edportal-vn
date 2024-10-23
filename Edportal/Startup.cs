@@ -1,8 +1,12 @@
 ﻿using Edportal.Database.Efcore;
+using Edportal.Filter;
 using Edportal.Interface;
 using Edportal.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Edportal
 {
@@ -27,7 +31,31 @@ namespace Edportal
 
             services.AddScoped<IDapper, DapperService>();
             services.AddScoped<IAdminService, AdminService>();
-            
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                var jwtSettings = Configuration.GetSection("JwtSettings");
+                var secretKey = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]);
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["Issuer"],
+                    ValidAudience = jwtSettings["Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(secretKey)
+                };
+            });
+
+            services.AddSingleton<JwtAuthorizeAttribute>();
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -46,6 +74,7 @@ namespace Edportal
             app.UseRouting();
 
             app.UseAuthentication();
+            //app.UseAuthorization();
 
             //app.UseEndpoints(endpoints =>
             //{

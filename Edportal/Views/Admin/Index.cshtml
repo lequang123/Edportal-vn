@@ -9,6 +9,12 @@
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/pro/pages/admin/index.chunk.css" asp-append-version="true" />
     </environment>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/dev/main.chunk.css" />
+     </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/pro/main.chunk.css" asp-append-version="true" />
+    </environment>
 }
 @section Scripts {
     <environment include="Development">
@@ -19,4 +25,5 @@
     </environment>
 }
 
-<div id="app-container"></div>
+<input type="hidden" id="RootUrl" value="@Url.Content("~/")" />
+<div id="admin-app-container"></div>

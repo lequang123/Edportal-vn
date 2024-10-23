@@ -12,6 +12,8 @@ namespace Edportal.Database.Efcore
 
         public DbSet<Location> Location { get; set; }
 
+        public DbSet<User> User { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -20,6 +22,13 @@ namespace Edportal.Database.Efcore
             {
                 entity.HasKey(e => e.LocationId);
                 entity.Property(e => e.LocationId)
+                  .ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
                   .ValueGeneratedOnAdd();
             });
         }

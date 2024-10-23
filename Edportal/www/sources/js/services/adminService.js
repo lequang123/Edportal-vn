@@ -19,6 +19,15 @@ export function addLocation(params = {}) {
   });
 }
 
+export function updateLocation(params = {}) {
+  return new middlewareService({
+    endpoint: Urls.ADMIN_LOCATION_Update,
+  }).put({
+    ...params,
+  });
+}
+
+
 export function deleteLocation(params = {}) {
   debugger
   return new middlewareService({

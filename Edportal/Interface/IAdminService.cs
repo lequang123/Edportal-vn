@@ -9,6 +9,8 @@ namespace Edportal.Interface
 
         Task CreateLocationAsync(LocationRequest request);
 
+        Task UpdateLocationAsync(LocationRequest request);
+
         Task DeleteLocationAsync(LocationRequest request);
     }
 }

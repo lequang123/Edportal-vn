@@ -9,7 +9,6 @@ const cssPaths = {
 };
 
 const scriptPaths = {
-    language: ['./www/sources/js/common/languages/ViewResources.js'],
     build: 'wwwroot/js',
     admin: ['./www/sources/js/pages/index.js'],
 };

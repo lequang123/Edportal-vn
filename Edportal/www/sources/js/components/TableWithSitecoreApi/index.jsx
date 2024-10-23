@@ -88,8 +88,8 @@ const TableWithSitecoreApi = (props) => {
   return (
     <div className="bg-white">
       {isRenderHeader && (
-        <div className="header p-3 flex flex-row items-center justify-between">
-          <div className="left flex flex-row items-center justify-content-end">
+        <div class="header p-3 d-flex flex-row align-items-center justify-content-between">
+          <div class="left d-flex flex-row align-items-center justify-content-end">
             <Space>
               {onSearch && (
                 <Input
@@ -114,7 +114,7 @@ const TableWithSitecoreApi = (props) => {
             ? renderTotal
             : paginationConfig &&
               !!paginationConfig?.total && (
-                <div className="total-count right text-md">
+                <div className="total-count text-end fs-5">
                   <span className="font-normal text-gray-500">Total</span>
                   <span className="font-semibold ml-1">
                     {paginationConfig.total}
