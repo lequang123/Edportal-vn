@@ -49,26 +49,52 @@
                 position: relative;
             }
 
-            .banner-euro-desktop, .skeleton-desktop {
-                position: absolute;
-                left: 240px;
-                top: -8px;
+        }
 
-                @include tableMobile {
-                    display: none;
-                }
+        .search-desktop {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
 
-                img {
-                    display: block;
-                }
+            width: 342px;
+            height: 40px;
+
+            border-radius: 4px;
+            position: absolute;
+            left: 240px;
+            top: -8px;
+            height: 100%;
+
+            @include tableMobile {
+                display: none;
             }
 
-            .skeleton-banner-euro-desktop {
-                width: 32rem;
-                height: 7rem;
 
-                @include tableMobile {
-                    display: none;
+            form {
+                position: relative;
+
+                .search-box {
+                    width: 261px;
+                    height: 40px;
+                    line-height: 3.2rem;
+                    box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+                    background: #FFFFFF;
+                    border: 1px solid $separator-color;
+                    padding: 10px 16px;
+                }
+
+                .search-button {
+                    padding: 10px 16px;
+                    width: 75px;
+                    height: 40px;
+                    background: #247BA0;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    line-height: 20px;
+                    color: #FFFFFF;
+                    border: none;
+
                 }
             }
         }
@@ -85,24 +111,7 @@
                 height: 100%;
             }
 
-            .search-desktop {
-                @include tableMobile {
-                    display: none;
-                }
-
-
-                form {
-                    position: relative;
-
-                    .search-box {
-                        height: 3.2rem;
-                        line-height: 3.2rem;
-                        border-radius: 16px;
-                        border: 1px solid $separator-color;
-                        padding: 0 2rem 0 3.5rem;
-                    }
-                }
-            }
+            
 
             .auth-input {
                 position: relative;
@@ -540,10 +549,9 @@
 
 
 .top-header {
-    width: 100%;
+    // width: 100%;
     padding: .5rem 0;
     background-color: $bg-nav;
-    border-bottom: 1px solid #e5e5e5;
     position: sticky;
     top: 0;
     z-index: 99;
@@ -578,7 +586,7 @@
                 position: relative;
                 list-style: none;
                 width: 100%;
-                @include flex(center, nowrap, space-between,row);
+                @include flex(center, nowrap, none,row);
                 height: 4rem;
                 @include tableMobile {
                     position: unset;
@@ -588,7 +596,6 @@
                     z-index: 999;
                     display: none;
                     background-color: $bg-nav;
-                    justify-content: inherit;
                     border-top: 1px solid $border-calendar;
                     border-bottom: 1px solid $border-calendar;
                     padding: 0 1.2rem;
@@ -609,6 +616,7 @@
                     display: flex;
                     align-items: center;
                     height: 5rem;
+                    margin-left: 4rem;
 
                     @include tableMobile {
                         display: block;
@@ -658,10 +666,22 @@
                         display: none;
                     }
 
+                    &.contact-menu {
+                        margin-left: 5rem;
+                        border: 1px solid #247BA0 ;
+                        border-radius: 4px ;
+                        padding: 1rem 1.6rem;
+                        .item {
+                            font-size: 1.6rem;
+                            font-weight: 600;
+                            color: #247BA0;
+                        }
+                    }
+
                     .item {
                         text-decoration: none;
                         display: inline-block;
-                        font-weight: 700;
+                        font-weight: 500;
                         transition: color .2s ease;
                         color: #2F2F2F;
 
@@ -671,7 +691,7 @@
                             display: block;
                             line-height: normal;
                             color: #333;
-                            font-weight: 600;
+                            font-weight: 500;
                         }
 
                         &:hover {
@@ -808,14 +828,14 @@
                                 a {
                                     text-decoration: none;
                                     display: block;
-                                    font-size: 1.4rem;
+                                    font-size: 1.6rem;
                                     color: #2F2F2F;
-                                    font-weight: 600;
+                                    font-weight: 500;
                                     padding: .7rem 2rem;
                                     line-height: 1.8rem;
 
                                     @include tableMobile {
-                                        font-weight: 400;
+                                        font-weight: 500;
                                         padding: 1.1rem 0 1.1rem 1.1rem;
                                         line-height: normal;
                                     }
@@ -1446,14 +1466,102 @@
     overflow: hidden;
 }
 
-.icon-profile{
-    font-size: 2.4rem;
-    margin-right: .6rem;
-    @include Mobile{
-        font-size: 2rem;
+
+.search-background {
+    height: 500px;
+    background-image: url(../../images/banner-header.jpg);
+    position: relative;
+    
+
+    @include tableMobile {
+        height: 300px;
     }
-    &::before{
-        color: #4F4F4F;
+
+    .text-wrapper {
+        height: calc(400px - 1rem);
+        position: relative;
+
+        @include tableMobile {
+            height: 200px;
+        }
+
+        .text-bottom {
+            bottom: 2.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 0 5%;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+
+            .main-title {
+                font-weight: 700;
+                font-size: 6.4rem;
+                line-height: 7.2rem;
+                color: #FFFFFF;
+
+                @include tableMobile {
+                    font-size: 3rem;
+                    line-height: 1rem;
+                }
+            }
+
+            .sub-title {
+                font-weight: 500;
+                font-size: 3.2rem;
+                line-height: 4rem;
+                color: #FFFFFF;
+
+                @include tableMobile {
+                    font-size: 2.5rem;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    .home-wrapper {
+        background: #05293c66;
+        bottom: 0;
+        left: 0;
+        padding: 27px 0;
+        position: absolute;
+        width: 100%;
+
+        .home-search {
+            width: 64rem;
+            height: 56px;
+            border-radius: 8px;
+            display: flex;
+            margin: 0 auto;
+            overflow: hidden;
+
+            @include tableMobile {
+                width: 90%;
+            }
+            
+            .search-box {
+                background-color: #fff;
+                border: 1px solid #b8c6ce;
+                border-right-color: #fff;
+                box-sizing: border-box;
+                padding: 10px 16px;
+                width: 52.4rem;
+            }
+
+            .search-button {
+                width: 116px;
+                padding: 10px 16px;
+                background: #247BA0;
+                color: #FFFFFF;
+                font-weight: 600;
+                font-size: 1.6rem;
+                line-height: 24px;
+                border: none;
+                border-radius:0 8px 8px 0;
+            }
+        }
     }
 }
 

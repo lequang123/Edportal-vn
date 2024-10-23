@@ -28,12 +28,6 @@
   cursor: unset;
   font-weight: normal;
 }
-.custom-input.list-input::-moz-placeholder {
-  color: #979797;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-weight: normal;
-}
 .custom-input.list-input::placeholder {
   color: #979797;
   font-style: italic;
@@ -357,12 +351,6 @@
   cursor: unset;
   font-weight: normal;
 }
-.page-table-control .list-input::-moz-placeholder {
-  color: #979797;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-weight: normal;
-}
 .page-table-control .list-input::placeholder {
   color: #979797;
   font-style: italic;
@@ -385,4 +373,4 @@
 
 #ViewEmailContent .modal-content {
   max-width: 100rem;
-}/*# sourceMappingURL=book.css.map */
+}
