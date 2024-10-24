@@ -35,7 +35,9 @@
             </circle>
         </svg>
     </div>
-    @RenderSection("Scripts", required: false)
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"," asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap-modal.js"," asp-append-version="true"></script>
     <environment include="Development">
         <script src="~/js/dev/lib/react-vendor.chunk.js"></script>
         <script src="~/js/dev/lib/react-bootstrap-vendor.chunk.js"></script>
@@ -45,5 +47,6 @@
         <script src="~/js/pro/lib/react-vendor.chunk.js" asp-append-version="true"></script>
         <script src="~/js/pro/lib/react-bootstrap-vendor.chunk.js" asp-append-version="true"></script>
     </environment>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

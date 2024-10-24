@@ -76,11 +76,6 @@ body {
   align-items: end;
 }
 
-/* .filter-items .input-wrapper {
-  min-width: 225px;
-  max-width: 250px;
-} */
-
 .filter-items .self-end {
   margin: 0 0 0 auto;
 }

@@ -14,7 +14,7 @@
 // @import '../components/list-content';
 
 // @import '../components/_card-horizontal';
-// @import '../components/card-vertical';
+@import '../components/card-vertical';
 // @import '../components/lazyload';
 // @import '../components/ads';
 // @import '../components/_popup-event';
@@ -63,5 +63,59 @@
         display: block;
         font-size: 2.5em;
         padding: .5em;
+    }
+}
+
+.block-artile {
+    display: grid;
+    grid-template-rows: unset;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2.4rem;
+    grid-column: 1 / 4;
+}
+
+.block-social-article {
+    display: grid;
+    grid-template-rows: unset;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2.4rem;
+    grid-column: 1 / 4;
+}
+
+.block-interest {
+    .block_title {
+        margin-bottom: 2.4rem;
+    }
+    
+}
+
+.block-paging {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2rem;
+    .paging {
+        display: flex;
+        .page {
+            border: none;
+            box-sizing: border-box;
+            color: #9ca0ac;
+            cursor: pointer;
+            display: flex;
+            float: none;
+            font-weight: 600;
+            justify-content: center;
+            line-height: 2.4rem;
+            margin: 10px;
+            padding: 10px;
+            width: 44px;
+            height: 44px;
+            &.active {
+                background-color: #247BA0;
+                color: #ffffff;
+            }
+        }
     }
 }

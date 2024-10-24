@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/_mixins.scss';
 .footer {
-    background: linear-gradient(180deg, #565759 0%, #323334 100%);
+    background: #161616;
     padding: 3.2rem 0 2rem;
     position: relative;
     margin-top: auto;
@@ -9,18 +9,39 @@
         padding: 0 0 2rem;
     }
     .container{
-        max-width: 113.2rem;
+        max-width: 120rem;
         @include Mobile{
             padding: 0;
         }
     }
-    &-item{
+    .footer-item{
         display: flex;
         justify-content: space-between;
         @include Mobile{
             display: none;
         }
-        &-block{
+        .footer-item-first-block {
+            width: 30%;
+        }
+        .footer-item-second-block {
+            width: 10%;
+        }
+        .footer-item-third-block {
+            width: 30%;
+        }
+
+        .heading-footer-list {
+            margin-bottom: 2.4rem;
+            a {
+                font-size: 1.8rem;
+                font-weight: 500px;
+                text-decoration: none;
+                color: #6D6D6D;
+                line-height: 2.4rem;
+            }
+            
+        }
+        .footer-item-block{
             margin-bottom: 1.2rem;
             border-right: 1px solid #676767;
             width: 18rem;
@@ -98,17 +119,23 @@
         }
     }
     .text-follow{
-        font-weight: 400;
-        font-size: 1.4rem;
-        color: #fff;
-        margin-bottom: 1.2rem;
-        white-space: nowrap;
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: #6D6D6D;
+        margin-bottom: 2.4rem;
         @include Mobile{
             padding-top: 1.2rem;
             margin-bottom: 1rem;
             border-top: 1px solid #676767;
         }
     }
+
+     .contact p {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem ;
+            color: #505050;
+        }
     .follow{
         display: inline-flex;
         a{
@@ -130,8 +157,8 @@
         align-items: flex-start;
         color: #fff;
         padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid #676767;
+        margin-top: 4rem;
+        border-top: 1px dashed #676767;
         @include tableMobile{
             flex-wrap: wrap;
         }
@@ -141,54 +168,24 @@
             border-top: none;
         }
         .footer-info-main{
-            ul{
-                list-style: none;
-                padding-left: 0;
-                display: flex;
-                margin-bottom: 1.6rem;
-                @include tableMobile{
-                    flex-wrap: wrap;
-                    margin-bottom: 1.2rem;
-                }
-                li{
-                    padding-right: 1rem;
-                    margin-right: 1rem;
-                    border-right: 1px solid #676767;
-                    @include tableMobile{
-                        padding-right: .3rem;
-                        margin-right: .3rem;
-                    }
-                    &:last-child{
-                        padding-right: 0;
-                        border-right: 0;
-                        margin-right: 0;
-                    }
-                    a{
-                        text-decoration: none;
-                        font-weight: 400;
-                        font-size: 1.4rem;
-                        line-height: 1.9rem;
-                        color: #fff;
-                        @include Mobile{
-                            font-size: 1.3rem;
-                        }
-                    }
-                }
-            }
+            width: 100%;
             .copy-right{
-                display: flex;
                 align-items: center;
                 font-weight: 400;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
                 line-height: 2.4rem;
                 @include Mobile{
                     flex-wrap: wrap;
                     margin-bottom: 1.2rem;
                 }
                 .copy-right-info{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    text-align: center;
+                    text-transform: uppercase;
                     margin-right: 2.4rem;
-                    display: flex;
                     align-items: center;
+                    color: #6D6D6D;
                     @include Mobile{
                         flex-wrap: wrap;
                     }
