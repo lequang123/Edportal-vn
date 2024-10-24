@@ -17,9 +17,6 @@
     .footer-item{
         display: flex;
         justify-content: space-between;
-        @include Mobile{
-            display: none;
-        }
         .footer-item-first-block {
             width: 30%;
         }
@@ -44,7 +41,6 @@
         .footer-item-block{
             margin-bottom: 1.2rem;
             border-right: 1px solid #676767;
-            width: 18rem;
             &:last-child{
                 border-right: none;
             }
@@ -104,6 +100,7 @@
     }
     .footer-logo{
         margin: 0 0 1rem 0;
+        width: 120px;
         @include Mobile{
             margin-bottom: 1.2rem;
         }

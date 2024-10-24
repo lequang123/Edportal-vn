@@ -1,7 +1,6 @@
 var home = (function ($) {
     function HandlePaging(){
         $(document).on('click', '.page', function() {
-            console.log(123);
             var currentPage = $(this).parent().data('current');
             var selectedPage = $(this).data('page');
             RenderPaging(selectedPage, 10, '.paging-interest')
