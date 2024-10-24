@@ -12,7 +12,8 @@ const MainLayout = () =>{
                 <Route path="/admin/location" element={<Location />} />
                 <Route path="/admin/location/create" element={<CreateLocation />} />
             </Route>
-            <Route path="/admin/login" element={<Login />} />
+
+            <Route path="/admin/user/login" element={<Login />} />
         </Routes>
     )
 }

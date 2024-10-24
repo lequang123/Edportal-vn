@@ -23,11 +23,13 @@ export default class ApiService {
 
     this.axios.interceptors.request.use(
       (config) => {
-        // const accessToken = Tokens.GetAccessToken();
+        const accessToken = localStorage.getItem('accessToken');
 
-        // config.headers["Authorization"] = {
-        //     toString() { return `Bearer ${accessToken}`; },
-        // }
+        debugger
+
+        config.headers["Authorization"] = {
+            toString() { return `Bearer ${accessToken}`; },
+        }
 
         return config;
       },

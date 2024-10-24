@@ -10,7 +10,6 @@ export function searchLocation(params = {}) {
   });
 }
 
-
 export function addLocation(params = {}) {
   return new middlewareService({
     endpoint: Urls.ADMIN_LOCATION_CREATE,
@@ -27,12 +26,26 @@ export function updateLocation(params = {}) {
   });
 }
 
-
 export function deleteLocation(params = {}) {
-  debugger
   return new middlewareService({
     endpoint: Urls.ADMIN_LOCATION_DELETE,
   }).delete({
+    ...params,
+  });
+}
+
+export function register(params = {}) {
+  return new middlewareService({
+    endpoint: Urls.ADMIN_LOCATION_REGISTER,
+  }).post({
+    ...params,
+  });
+}
+
+export function login(params = {}) {
+  return new middlewareService({
+    endpoint: Urls.ADMIN_LOCATION_LOGIN,
+  }).post({
     ...params,
   });
 }

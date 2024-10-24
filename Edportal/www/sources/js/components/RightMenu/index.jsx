@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function RightMenu() {
   const navigate = useNavigate();
+  const userInfo = localStorage.getItem('userInfo');
+  const userInfoJson = JSON.parse(userInfo);
   const items = [
     {
       label: "Log out",
@@ -17,7 +19,11 @@ export default function RightMenu() {
   const handleMenuClick = (e) => {
     console.log("click", e);
     if (e.key === "1") {
-      navigate('/admin/login');
+      navigate('/admin/user/login');
+
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('accessToken');
+
     }
   };
 
@@ -41,7 +47,7 @@ export default function RightMenu() {
           placement="bottom"
           icon={<UserOutlined />}
         >
-          Hi {`Teddy`},
+          Hi {`${userInfoJson?.username}`}
         </Dropdown.Button>
       </Space>
     </div>

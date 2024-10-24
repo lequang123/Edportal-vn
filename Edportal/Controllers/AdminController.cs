@@ -28,14 +28,14 @@ namespace Edportal.Controllers
         }
 
         [HttpGet]
-        //[ServiceFilter(typeof(JwtAuthorizeAttribute))]
+        [ServiceFilter(typeof(JwtAuthorizeAttribute))]
         public async Task<List<Location>> GetLocation()
         {
             return await adminService.GetLocationsAsync();
         }
 
         [HttpPost]
-        //[ServiceFilter(typeof(JwtAuthorizeAttribute))]
+        [ServiceFilter(typeof(JwtAuthorizeAttribute))]
         public async Task CreateLocation([FromBody] LocationRequest request)
         {
             await adminService.CreateLocationAsync(request);
@@ -56,7 +56,7 @@ namespace Edportal.Controllers
         }
 
         [HttpPost]
-        //[ServiceFilter(typeof(JwtAuthorizeAttribute))]
+        [ServiceFilter(typeof(JwtAuthorizeAttribute))]
         public async Task<ResponseResult> Register([FromBody] User userRequest)
         {
             return await userService.RegisterAsync(userRequest);

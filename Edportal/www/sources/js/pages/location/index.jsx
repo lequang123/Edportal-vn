@@ -6,7 +6,6 @@ import { cloneDeep } from "lodash";
 import InputWrapper from "../../components/InputWrapper";
 import TableWithSitecoreApi from "../../components/TableWithSitecoreApi";
 import { useSearchLocation, useAddLocation, useDeleteLocation, useUpdateLocation } from "../../queries/adminQueries";
-import { Link } from "react-router-dom"; 
 import { PlusCircleOutlined, EditOutlined, DeleteOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import BrotherForm from '../../components/BrotherForm/index'
 const { confirm } = Modal;

@@ -66,6 +66,9 @@ namespace Edportal.Services
             var token = GenerateToken(user);
             responseResult.IsSucess = true;
             responseResult.Message = token;
+            responseResult.UserInfo.Username = user.Username;
+            responseResult.UserInfo.Role = user.Role;
+
             return responseResult;
         }
 

@@ -4,22 +4,36 @@ import {
   LockOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Button, Form, Input, Space } from "antd";
+import { Button, Form, Input, Space, message } from "antd";
 import { useContext } from "react";
-// import { AuthContext } from "../../auth/AuthProvider.jsx";
 import LayoutLogin from "../../layout/LayoutLogin";
 import React from "react";
+import { useRegister, useLogin } from "../../queries/adminQueries";
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Login = () => {
-  // const { login } = useContext(AuthContext);
+export const Login = () => {
+  const navigate = useNavigate();
 
   const onFinish = (values) => {
     var model = {
       username: values.username,
       password: values.password,
     };
-    //login(model);
+    resUseLogin.mutate(model);
   };
+
+  const resUseLogin = useLogin({
+    onSuccess: (res, variables) => {
+      if(res?.isSucess){
+        localStorage.setItem('accessToken', res.message);
+        localStorage.setItem('userInfo', JSON.stringify(res.userInfo));
+
+        navigate('/admin/');
+      }else{
+        message.error(res.message, 3);
+      }
+    }
+  });
 
   return (
     <div className="d-flex flex-column justify-content-center min-vh-100" style={{'background-color': 'rgb(156,163,175)'}}>

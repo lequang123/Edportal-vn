@@ -1,8 +1,8 @@
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from 'react-query';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NavigationProvider } from './NavigationProvider'; // Make sure this path is correct
-import { message } from 'antd'; // Import Ant Design's message for error display
+import { NavigationProvider } from './NavigationProvider';
+import { message } from 'antd';
 
 const QueryClientProviderWrapper = ({ children }) => {
     const navigate = useNavigate();
@@ -11,8 +11,8 @@ const QueryClientProviderWrapper = ({ children }) => {
         console.log('error', error);
 
         if (error.response?.status === 401) {
-            navigate('/admin/login');
-            return; // Early return to prevent further processing
+            navigate('/admin/user/login');
+            return;
         }
 
         if (error.response?.data?.ContentType === "text/html; charset=utf-8") {

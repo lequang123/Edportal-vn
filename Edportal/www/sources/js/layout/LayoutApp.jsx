@@ -3,12 +3,11 @@ import LeftMenu from '../components/LeftMenu';
 import RightMenu from '../components/RightMenu';
 import React, {useEffect} from 'react';
 import { Outlet } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const { Header, Content, Sider } = Layout;
 
 const LayoutApp = ({ children, ...props }) => {
-    const { token: { colorBgContainer } } = theme.useToken();
-
     return (
         <Layout className='min-h-screen'>
             <Header className="header d-flex justify-content-between" style={{ background: 'rgb(0,33,64)' }}>

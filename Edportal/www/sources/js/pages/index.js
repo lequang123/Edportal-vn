@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import MainLayout from '../layout/MainLayout'
 import { ConfigProvider, message } from 'antd';
 import { BrowserRouter as Router} from 'react-router-dom';
-import QueryClientProviderWrapper from "../auth/QueryClientProviderWrapper"
+import QueryClientProviderWrapper from "../auth/QueryClientProviderWrapper";
 
 const validateMessages = {
     //required: "${name} is required!",
