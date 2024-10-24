@@ -1471,7 +1471,7 @@
     height: 500px;
     background-image: url(../../images/banner-header.jpg);
     position: relative;
-    
+    margin-bottom: 1.6rem;
 
     @include tableMobile {
         height: 300px;
@@ -1486,7 +1486,7 @@
         }
 
         .text-bottom {
-            bottom: 2.5rem;
+            bottom: 6.5rem;
             box-sizing: border-box;
             display: flex;
             flex-direction: column-reverse;

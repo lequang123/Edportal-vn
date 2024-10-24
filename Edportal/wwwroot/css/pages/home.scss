@@ -6,7 +6,7 @@
 @import '../layout/header';
 @import '../components/container';
 // @import '../components/fonts';
-// @import '../components/block';
+@import '../components/block';
 // @import '../components/img';
 // @import '../components/buttons';
 // @import '../components/swipper';
@@ -20,3 +20,48 @@
 // @import '../components/_popup-event';
 // @import '../components/scroll-snap';
 // @import '../components/poll';
+
+
+.discipline {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: .25em 0 0;
+
+    .discipline-item {
+        width: 20%;
+        background: #EDF3F6;
+        border: 1px solid #FFFFFF;
+        padding: 1.6rem;
+        @include tableMobile {
+            width: 50%;;
+        }
+
+        &:hover {
+            background-color: #247ba0;
+            a {
+                color: #ffffff;
+            }
+        }
+
+        a {
+            color: #05293c;
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 2.4rem;
+            transition: none !important;
+            text-align: center;
+            text-decoration: none;
+        }
+
+    }
+
+    .DisciplineIcons {
+        display: block;
+        font-size: 2.5em;
+        padding: .5em;
+    }
+}

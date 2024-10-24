@@ -120,6 +120,7 @@
 
 
 @section Styles {
+    <link rel="stylesheet" media="all" href="~/css/vendor/icomoon/style.css" asp-append-version="true">
     <link rel="preload stylesheet" media="all" href="~/css/pages/home.css" asp-append-version="true">
 }
 @section Scripts{
@@ -130,8 +131,8 @@
 <div class="search-background">
     <div class="text-wrapper">
         <div class="text-bottom">
-            <h2 class="sub-title">Tất cả mọi ngành học tại Việt Nam</h2>
-            <h1 class="main-title">Tra cứu chương trình học</h1>
+            <div class="sub-title">Tất cả mọi ngành học tại Việt Nam</div>
+            <div class="main-title">Tra cứu chương trình học</div>
         </div>
     </div>
 
@@ -145,16 +146,59 @@
 
 <section class="main">
     <div class="container">
-         <div class="block block-first-hot">
-            <div class="block-columns">
-            <div class="columns columns-left"></div>
-                <div class="columns columns-right">
-                    <div class="home-nav-content">
-                        <div id="fixture-homepage"></div>
-                        <div id="standing-homepage"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="block block-first">
+            <div class="block_title">Tra cứu ngành học</div>
+            <ul class="discipline">
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-tree DisciplineIcons"></i> Agriculture & Forestry</a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-microscope DisciplineIcons"></i> Appplied Sciences & Profressions</a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-magic-wand DisciplineIcons"></i> Arts, Design & Architecture</a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-briefcase DisciplineIcons"></i> Business & Management </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-cli DisciplineIcons"></i> Computer Science & IT </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-book2  DisciplineIcons"></i> Education & Training </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-rulers  DisciplineIcons"></i> Engineering & Technology </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-earth DisciplineIcons"></i> Environmental Studies & Earth Sciences </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-boat DisciplineIcons"></i> Hospitality, Leisure & Sports </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-pen2 DisciplineIcons"></i> Humanities </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-camera  DisciplineIcons"></i> Journalism & Media </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-balance DisciplineIcons"></i> Law </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-first-aid DisciplineIcons"></i> Medicine & Health </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-beaker DisciplineIcons"></i> Natural Sciences & Mathematics </a>
+                </li>
+                <li class="discipline-item">
+                    <a href=""><i class="lnr-bubbles  DisciplineIcons"></i> Social Sciences </a>
+                </li>
+            </ul>
+         </div>
+
+         <div class="block">
+            <div class="block_title">Bài viết thú vị</div>
          </div>
     </div>
 </section
